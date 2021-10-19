@@ -32,6 +32,15 @@ Partial Public Class _Default
     Protected WithEvents cmdExportarExcel As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''Control cmdCargarCR.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cmdCargarCR As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''Control lblInfo.
     '''</summary>
     '''<remarks>
@@ -131,11 +140,20 @@ Partial Public Class _Default
     Protected WithEvents SDSCargarSILES As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Control CrystalReportViewer1.
+    '''Control CRV_PA_Informe.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents CrystalReportViewer1 As Global.CrystalDecisions.Web.CrystalReportViewer
+    Protected WithEvents CRV_PA_Informe As Global.CrystalDecisions.Web.CrystalReportViewer
+
+    '''<summary>
+    '''Control CRS_PA_Informe.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CRS_PA_Informe As Global.CrystalDecisions.Web.CrystalReportSource
 End Class

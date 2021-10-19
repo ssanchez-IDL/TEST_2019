@@ -1,11 +1,19 @@
 ﻿Imports System.IO
 Imports ClosedXML.Excel
+Imports CrystalDecisions.Shared
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class _Default
     Inherits Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            Try
 
+            Catch ex As Exception
+
+            End Try
+        End If
     End Sub
 
     Protected Sub cmdCargarGrids_Click(sender As Object, e As EventArgs) Handles cmdCargarGrids.Click
@@ -47,11 +55,6 @@ Public Class _Default
                 wb.Worksheets.Add(dt, "SILES")
                 wb.Worksheets(1).Columns.AdjustToContents()
 
-                'dt = CType(SDSCargarSILES.Select(DataSourceSelectArguments.Empty), DataView).Table
-                'dt = TryCast(GVSILES.DataSource, DataTable)
-                'wb.Worksheets.Add(dt, "SILES")
-                'wb.Worksheets(1).Columns.AdjustToContents()
-
                 Response.Clear()
                 Response.Buffer = True
                 Response.Charset = ""
@@ -70,6 +73,41 @@ Public Class _Default
         Catch ex As Exception
             lblInfo.Text = "Error al generar el fichero Excel. Descripción del error : " & ex.Message
             lblInfo.Visible = True
+        End Try
+    End Sub
+
+    Protected Sub cmdCargarCR_Click(sender As Object, e As EventArgs) Handles cmdCargarCR.Click
+        Dim rd As New ReportDocument
+        Dim crTableLogonInfos As New TableLogOnInfos
+        Dim crTableLogonInfo As New TableLogOnInfo
+        Dim crConnectionInfo As New ConnectionInfo
+        Dim crTables As Tables
+        Dim crTable As Table
+
+        Try
+            rd.Load(Server.MapPath("\\Informes\\InformeMaestros.rpt"))
+
+            With crConnectionInfo
+                .ServerName = System.Configuration.ConfigurationManager.AppSettings("srv").ToString()
+                .DatabaseName = System.Configuration.ConfigurationManager.AppSettings("bd").ToString()
+                .UserID = System.Configuration.ConfigurationManager.AppSettings("usr").ToString()
+                .Password = System.Configuration.ConfigurationManager.AppSettings("pwd").ToString()
+            End With
+
+            crTables = rd.Database.Tables
+
+            For Each crTable In crTables
+                crTableLogonInfo = crTable.LogOnInfo
+                crTableLogonInfo.ConnectionInfo = crConnectionInfo
+                crTable.ApplyLogOnInfo(crTableLogonInfo)
+            Next
+
+            CRV_PA_Informe.ReportSource = rd
+            CRV_PA_Informe.RefreshReport()
+
+            CRV_PA_Informe.Visible = True
+        Catch ex As Exception
+            lblInfo.Text = "Error al intentar mostrar el informe: " & ex.Message
         End Try
     End Sub
 End Class

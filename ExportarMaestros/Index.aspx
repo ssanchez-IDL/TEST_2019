@@ -18,6 +18,8 @@
                         <br />
                         <asp:Button ID="cmdExportarExcel" runat="server" Text="Exportar Excel" Visible="False" />
                         <br />
+                        <br />
+                        <asp:Button ID="cmdCargarCR" runat="server" Text="Cargar Informe" />
                     </td>
                     <td colspan="2" style="vertical-align: top">
                         <asp:Label ID="lblInfo" runat="server" ForeColor="#FF9900"></asp:Label>
@@ -60,7 +62,11 @@
                 </tr>
                 <tr>
                     <td style="vertical-align: top; padding-right: 10px" colspan="2">
-                        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+                        <CR:CrystalReportViewer ID="CRV_PA_Informe" runat="server" AutoDataBind="true" HasCrystalLogo="False" HasSearchButton="False" HasToggleGroupTreeButton="False" HasZoomFactorList="False" PrintMode="ActiveX" ToolPanelView="None" />
+                        <CR:CrystalReportSource ID="CRS_PA_Informe" runat="server">
+                            <Report FileName="Informes\InformeMaestros.rpt">
+                            </Report>
+                        </CR:CrystalReportSource>
                     </td>
                 </tr>
                 </table>
