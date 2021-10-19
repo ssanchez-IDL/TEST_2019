@@ -30,6 +30,7 @@ Public Class _Default
 
             cmdExportarExcel.Visible = True
             lblInfo.Visible = False
+            CRV_PA_Informe.Visible = False
         Catch ex As Exception
             lblInfo.Text = "Error al cargar los GridViews. Descripción del error : " & ex.Message
             lblInfo.Visible = True
@@ -67,6 +68,7 @@ Public Class _Default
                     Response.[End]()
                 End Using
             End Using
+
             lblInfo.Visible = False
         Catch exthread As System.Threading.ThreadAbortException
             'El response.end rompe la ejecución de la página, pero no es un error propiamente.
@@ -105,6 +107,8 @@ Public Class _Default
             CRV_PA_Informe.ReportSource = rd
             CRV_PA_Informe.RefreshReport()
 
+            PNLSILES.Visible = False
+            PNLSIGMA.Visible = False
             CRV_PA_Informe.Visible = True
         Catch ex As Exception
             lblInfo.Text = "Error al intentar mostrar el informe: " & ex.Message

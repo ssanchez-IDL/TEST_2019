@@ -13,13 +13,15 @@
             <table style="width:100%;">
                 <tr>
                     <td rowspan="3" style="vertical-align: top; padding: 10px; text-align: center;">
-                        <asp:Button ID="cmdCargarGrids" runat="server" Text="Cargar datos" />
+                        <asp:Button ID="cmdCargarGrids" runat="server" Text="Cargar datos" Width="150px" />
                         <br />
                         <br />
-                        <asp:Button ID="cmdExportarExcel" runat="server" Text="Exportar Excel" Visible="False" />
+                        <asp:Button ID="cmdCargarCR" runat="server" Text="Cargar Informe" Width="150px" />
                         <br />
                         <br />
-                        <asp:Button ID="cmdCargarCR" runat="server" Text="Cargar Informe" />
+                        <asp:Button ID="cmdExportarExcel" runat="server" Text="Exportar Excel" Visible="False" Width="150px" />
+                        <br />
+                        <br />
                     </td>
                     <td colspan="2" style="vertical-align: top">
                         <asp:Label ID="lblInfo" runat="server" ForeColor="#FF9900"></asp:Label>
@@ -28,8 +30,8 @@
                 <tr>
                     <td style="vertical-align: top; padding-right: 10px">
                         <asp:Panel ID="PNLSIGMA" runat="server" Visible="False">
-                            <asp:Label ID="Label2" runat="server" Text="Maestros SIGMA - Filas:"></asp:Label>
-                            <asp:Label ID="LBLTotalSigma" runat="server"></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text="Maestros SIGMA - Filas:" Font-Bold="True" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="#1E436F"></asp:Label>
+                            <asp:Label ID="LBLTotalSigma" runat="server" Font-Bold="True" ForeColor="#1E436F"></asp:Label>
                             <asp:GridView ID="GVSIGMA" runat="server" AutoGenerateColumns="False" DataKeyNames="Referencia">
                                 <Columns>
                                     <asp:BoundField DataField="Referencia" HeaderText="Referencia" ReadOnly="True" SortExpression="Referencia" />
@@ -45,8 +47,8 @@
                     </td>
                     <td style="vertical-align: top; padding-left: 10px"">
                         <asp:Panel ID="PNLSILES" runat="server" Visible="False">
-                            <asp:Label ID="Label3" runat="server" Text="Maestros SILES - Filas:"></asp:Label>
-                            <asp:Label ID="LBLTotalSiles" runat="server"></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text="Maestros SILES - Filas:" Font-Bold="True" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="#1E436F"></asp:Label>
+                            <asp:Label ID="LBLTotalSiles" runat="server" Font-Bold="True" ForeColor="#1E436F"></asp:Label>
                             <asp:GridView ID="GVSILES" runat="server" AutoGenerateColumns="False" DataKeyNames="IdReferencia,IdProveedor">
                                 <Columns>
                                     <asp:BoundField DataField="IdReferencia" HeaderText="IdReferencia" ReadOnly="True" SortExpression="IdReferencia" />
