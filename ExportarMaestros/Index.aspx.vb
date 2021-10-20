@@ -87,7 +87,13 @@ Public Class _Default
         Dim crTable As Table
 
         Try
-            rd.Load(Server.MapPath("\\Informes\\InformeMaestros.rpt"))
+            PNLSILES.Visible = False
+            PNLSIGMA.Visible = False
+
+            lblInfo.Text = Environment.CurrentDirectory
+            lblInfo.Visible = True
+
+            rd.Load(Server.MapPath(".\Informes\InformeMaestros.rpt"))
 
             With crConnectionInfo
                 .ServerName = System.Configuration.ConfigurationManager.AppSettings("srv").ToString()
@@ -106,12 +112,9 @@ Public Class _Default
 
             CRV_PA_Informe.ReportSource = rd
             CRV_PA_Informe.RefreshReport()
-
-            PNLSILES.Visible = False
-            PNLSIGMA.Visible = False
             CRV_PA_Informe.Visible = True
         Catch ex As Exception
-            lblInfo.Text = "Error al intentar mostrar el informe: " & ex.Message
+            lblInfo.Text = "Error al intentar mostrar el informe: " & ex.Message & vbLf & Server.MapPath("\\Informes\\InformeMaestros.rpt")
         End Try
     End Sub
 End Class

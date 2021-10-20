@@ -42,7 +42,7 @@
                                 </Columns>
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SDSCargarSIGMA" runat="server" ConnectionString="<%$ ConnectionStrings:CNSBDSYSJIT %>" ProviderName="<%$ ConnectionStrings:CNSBDSYSJIT.ProviderName %>" SelectCommand="SP_IIS_MaestroSIGMASILS" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SDSCargarSIGMA" runat="server" ConnectionString="<%$ ConnectionStrings:CNSBDSYSJIT %>" ProviderName="<%$ ConnectionStrings:CNSBDSYSJIT.ProviderName %>" SelectCommand="SP_IIS_MaestroSIGMA" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                         </asp:Panel>
                     </td>
                     <td style="vertical-align: top; padding-left: 10px"">
