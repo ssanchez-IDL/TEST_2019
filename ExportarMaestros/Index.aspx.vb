@@ -68,8 +68,6 @@ Public Class _Default
                     Response.[End]()
                 End Using
             End Using
-
-            lblInfo.Visible = False
         Catch exthread As System.Threading.ThreadAbortException
             'El response.end rompe la ejecución de la página, pero no es un error propiamente.
         Catch ex As Exception
@@ -89,9 +87,7 @@ Public Class _Default
         Try
             PNLSILES.Visible = False
             PNLSIGMA.Visible = False
-
-            lblInfo.Text = Environment.CurrentDirectory
-            lblInfo.Visible = True
+            lblInfo.Visible = False
 
             rd.Load(Server.MapPath(".\Informes\InformeMaestros.rpt"))
 
@@ -115,6 +111,7 @@ Public Class _Default
             CRV_PA_Informe.Visible = True
         Catch ex As Exception
             lblInfo.Text = "Error al intentar mostrar el informe: " & ex.Message & vbLf & Server.MapPath("\\Informes\\InformeMaestros.rpt")
+            lblInfo.Visible = True
         End Try
     End Sub
 End Class
